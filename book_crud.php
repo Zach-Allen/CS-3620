@@ -33,6 +33,15 @@ $result = $conn->query($sql);
 
 echo "New book created successfully <br>";
 
+if ($result->num_rows > 0) {
+  // output data of each row
+  while($row = $result->fetch_assoc()) {
+    echo "id: " . $row["idBooks"]. " - Title: " . $row["title"]. "<br>";
+  }
+} else {
+  echo "0 results";
+}
+
 $sql = "DELETE FROM books WHERE title='Hunger Games'";
 $result = $conn->query($sql);
 
