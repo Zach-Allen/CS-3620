@@ -37,7 +37,7 @@ if ($result->num_rows > 0) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "DELETE FROM books WHERE idbooks=3";
+$sql = "DELETE FROM books WHERE title='Hunger Games'";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
