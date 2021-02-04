@@ -31,12 +31,12 @@ $sql = "INSERT INTO books (title, author)
 VALUES ('Hunger Games', 'Suzanne Collins')";
 $result = $conn->query($sql);
 
-echo "New book created successfully";
+echo "New book created successfully <br>";
 
 $sql = "DELETE FROM books WHERE title='Hunger Games'";
 $result = $conn->query($sql);
 
-echo "Book deleted successfully";
+echo "Book deleted successfully <br>";
 
 $sql = "SELECT title, author FROM books";
 $result = $conn->query($sql);
