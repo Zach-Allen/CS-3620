@@ -2,12 +2,11 @@
 session_start();
 $servername = "cs3620-books-sql.mysql.database.azure.com";
 
-$username = (isset($_SESSION["SQLUSER"]) ? $_SESSION["SQLUSER"] : $_ENV['SQLUSER']);
-$password = (isset($_SESSION["SQLPW"]) ? $_SESSION["SQLPW"] : $_ENV['SQLPW']);
-$dbname = "movies_schema";
-
-//zachallen@zachallen-cs3620sql
-//Password123$
+// $username = (isset($_SESSION["SQLUSER"]) ? $_SESSION["SQLUSER"] : $_ENV['SQLUSER']);
+// $password = (isset($_SESSION["SQLPW"]) ? $_SESSION["SQLPW"] : $_ENV['SQLPW']);
+$username="zachallen";
+$password="Password123$";
+$dbname = "books_crud";
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $dbname);
@@ -38,7 +37,7 @@ if ($result->num_rows > 0) {
   echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
-$sql = "DELETE FROM MyGuests WHERE id=3";
+$sql = "DELETE FROM books WHERE idbooks=3";
 $result = $conn->query($sql);
 
 if ($result->num_rows > 0) {
