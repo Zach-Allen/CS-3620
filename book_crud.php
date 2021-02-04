@@ -31,21 +31,20 @@ $sql = "INSERT INTO books (title, author)
 VALUES ('Hunger Games', 'Suzanne Collins')";
 $result = $conn->query($sql);
 
-echo "New book created successfully <br>";
-
 if ($result->num_rows > 0) {
-  // output data of each row
-  while($row = $result->fetch_assoc()) {
-    echo "id: " . $row["idBooks"]. " - Title: " . $row["title"]. "<br>";
-  }
+  echo "New record created successfully";
 } else {
-  echo "0 results";
+  echo "Error: " . $sql . "<br>" . $conn->error;
 }
 
 $sql = "DELETE FROM books WHERE title='Hunger Games'";
 $result = $conn->query($sql);
 
-echo "Book deleted successfully <br>";
+if ($result->num_rows > 0) {
+  echo "Row deleted successfully";
+} else {
+  echo "Error: " . $sql . "<br>" . $conn->error;
+}
 
 $sql = "SELECT title, author FROM books";
 $result = $conn->query($sql);
