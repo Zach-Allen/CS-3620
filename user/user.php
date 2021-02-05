@@ -5,7 +5,7 @@
     private $username;
     private $user_id;
 
-    public function getUser($_user_id){
+    public function getUser($user_id){
       $this->user_id = $user_id;
 
       $userDAO = new UserDAO();
