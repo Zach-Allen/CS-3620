@@ -1,7 +1,7 @@
 <?php
 require_once('./user/userDAO.php');
 
-class User {
+class User implements \JsonSerializable {
   // Properties
   private $user_id;
   private $username;
@@ -50,6 +50,30 @@ class User {
     return $this;
   }
 
+  // for username
+  function getUserN($username){
+    $this->username = $username;
+    $userDAO = new userDAO();
+    $userDAO->getUserN($this);
+    return $this;
+  }
+
+  // for first name
+  function getUserF($first_name){
+    $this->first_name = $first_name;
+    $userDAO = new userDAO();
+    $userDAO->getUserF($this);
+    return $this;
+  }
+
+  // for last name
+  function getUserL($last_name){
+    $this->last_name = $last_name;
+    $userDAO = new userDAO();
+    $userDAO->getUserL($this);
+    return $this;
+  }
+
   function createUser(){
     $userDAO = new userDAO();
     $userDAO->createUser($this);
@@ -58,6 +82,11 @@ class User {
   function deleteUser($username){
     $userDAO = new userDAO();
     $userDAO->deleteUser($username);
+  }
+
+  public function jsonSerialize(){
+      $vars = get_object_vars($this);
+      return $vars;
   }
 }
 ?>

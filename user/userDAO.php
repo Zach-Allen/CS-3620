@@ -3,15 +3,75 @@ class UserDAO {
   function getUser($user){
     require_once('./utilities/connection.php');
     
-    $sql = "SELECT first_name, last_name, username, user_id FROM user WHERE user_id =" . $user->getUserId();
+    $sql = "SELECT firstName, lastName, userName, user_id FROM cs3620_proj.user WHERE user_id =" . $user->getUserId();
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $user->setFirstName($row["first_name"]);
-        $user->setLastName($row["last_name"]);
-        $user->setUsername($row["username"]);
+        $user->setFirstName($row["firstName"]);
+        $user->setLastName($row["lastName"]);
+        $user->setUsername($row["userName"]);
+    }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+  }
+
+  // for username
+  function getUserN($user){
+    require_once('./utilities/connection.php');
+    
+    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE userName ="."'". $user->getUsername() ."'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user->setFirstName($row["firstName"]);
+        $user->setLastName($row["lastName"]);
+        $user->setUsername($row["userName"]);
+    }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+  }
+
+  // for firstname
+  function getUserF($user){
+    require_once('./utilities/connection.php');
+    
+    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE firstName ="."'". $user->getFirstName() ."'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user->setFirstName($row["firstName"]);
+        $user->setLastName($row["lastName"]);
+        $user->setUsername($row["userName"]);
+    }
+    } else {
+        echo "0 results";
+    }
+    $conn->close();
+  }
+
+  // for lastname
+  function getUserL($user){
+    require_once('./utilities/connection.php');
+    
+    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE lastName ="."'". $user->getLastName() ."'";
+    $result = $conn->query($sql);
+
+    if ($result->num_rows > 0) {
+    // output data of each row
+    while($row = $result->fetch_assoc()) {
+        $user->setFirstName($row["firstName"]);
+        $user->setLastName($row["lastName"]);
+        $user->setUsername($row["userName"]);
     }
     } else {
         echo "0 results";
@@ -24,10 +84,10 @@ class UserDAO {
     
     $sql = "INSERT INTO cs3620_proj.user
     (
-    `username`,
+    `userName`,
     `password`,
-    `first_name`,
-    `last_name`)
+    `firstName`,
+    `lastName`)
     VALUES
     ('" . $user->getUsername() . "',
     '" . $user->getPassword() . "',
@@ -47,7 +107,7 @@ class UserDAO {
   function deleteUser($un){
     require_once('./utilities/connection.php');
     
-    $sql = "DELETE FROM cs3620_proj.user WHERE username = '" . $un . "';";
+    $sql = "DELETE FROM cs3620_proj.user WHERE userName = '" . $un . "';";
 
     if ($conn->query($sql) === TRUE) {
       echo "user deleted";
