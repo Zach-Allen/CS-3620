@@ -1,107 +1,34 @@
 <h1 id="header1"></h1>
 
 <script>
-  function getByUserId(user_id) {
-    fetch("https://cs3620app.azurewebsites.net/users.php?id=" + user_id)
-      .then(response => response.json())
-      .then(function(data) {
-        document.getElementById("firstName").innerHTML = data.first_name;
-        document.getElementById("lastName").innerHTML = data.last_name;
-        document.getElementById("userName").innerHTML = data.username;
-      })
-      .catch(error => {
-        alert("That user does not yet exist");
-        document.getElementById("firstName").innerHTML = "";
-        document.getElementById("lastName").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-      });
-  }
 
-  function getByUsername(username) {
-    fetch("https://cs3620app.azurewebsites.net/usernames.php?id=" + username)
-      .then(response => response.json())
-      .then(function(data) {
-        document.getElementById("firstName").innerHTML = data.first_name;
-        document.getElementById("lastName").innerHTML = data.last_name;
-        document.getElementById("userName").innerHTML = data.username;
-      })
-      .catch(error => {
-        alert("That user does not yet exist");
-        document.getElementById("firstName").innerHTML = "";
-        document.getElementById("lastName").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-      });
-  }
+    function hello(userid){
+        fetch('http://localhost:8080/project/users.php?id=' + userid)
+        .then(response => response.json())
+        .then(
 
-  function getByFirstName(first_name) {
-    fetch(
-      "https://cs3620app.azurewebsites.net/userFirstName.php?id=" + first_name
-    )
-      .then(response => response.json())
-      .then(function(data) {
-        document.getElementById("firstName").innerHTML = data.first_name;
-        document.getElementById("lastName").innerHTML = data.last_name;
-        document.getElementById("userName").innerHTML = data.username;
-      })
-      .catch(error => {
-        alert("That user does not yet exist");
-        document.getElementById("firstName").innerHTML = "";
-        document.getElementById("lastName").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-      });
-  }
+            function (data){
+                document.getElementById("firstName").innerHTML = data.first_name;
+                document.getElementById("lastName").innerHTML = data.last_name;
+                document.getElementById("userName").innerHTML = data.username;
+            }
 
-  function getByLastName(last_name) {
-    fetch(
-      "https://cs3620app.azurewebsites.net/userLastName.php?id=" + last_name
-    )
-      .then(response => response.json())
-      .then(function(data) {
-        document.getElementById("firstName").innerHTML = data.first_name;
-        document.getElementById("lastName").innerHTML = data.last_name;
-        document.getElementById("userName").innerHTML = data.username;
-      })
-      .catch(error => {
-        alert("That user does not yet exist");
-        document.getElementById("firstName").innerHTML = "";
-        document.getElementById("lastName").innerHTML = "";
-        document.getElementById("userName").innerHTML = "";
-      });
-  }
+        ).catch((error) => {
+            alert("That user does not yet exist")
+            document.getElementById("firstName").innerHTML = "";
+                document.getElementById("lastName").innerHTML = "";
+                document.getElementById("userName").innerHTML = "";
+        });
+    }
+
 </script>
 
-<label for="theUserId">Userid:</label>
-<input type="text" id="theUserId" />
-<input
-  type="button"
-  value="Get User"
-  onclick="getByUserId(document.getElementById('theUserId').value);"
-/>
-
-<label for="firstName">First Name:</label>
-<input type="text" id="firstName" />
-<input
-  type="button"
-  value="Get User"
-  onclick="getByFirstName(document.getElementById('firstName').value);"
-/>
-
-<label for="lastName">Last Name:</label>
-<input type="text" id="lastName" />
-<input
-  type="button"
-  value="Get User"
-  onclick="getByLastName(document.getElementById('lastName').value);"
-/>
-
-<label for="userName">User Name:</label>
-<input type="text" id="username" />
-<input
-  type="button"
-  value="Get User"
-  onclick="getByUsername(document.getElementById('username').value);"
-/>
+Userid: <input type="text" id="theUserId" />
+<input type="button" value="Get User" onclick="hello(document.getElementById('theUserId').value);" />
 
 <div id="firstName"></div>
 <div id="lastName"></div>
 <div id="userName"></div>
+
+
+

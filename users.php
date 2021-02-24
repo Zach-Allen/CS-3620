@@ -11,6 +11,4 @@
     $user->getUser($_GET["id"]);
 
     echo json_encode($user);
-
-
 ?>

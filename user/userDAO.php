@@ -3,15 +3,15 @@ class UserDAO {
   function getUser($user){
     require_once('./utilities/connection.php');
     
-    $sql = "SELECT firstName, lastName, userName, user_id FROM cs3620_proj.user WHERE user_id =" . $user->getUserId();
+    $sql = "SELECT first_name, last_name, username, user_id FROM user WHERE user_id =" . $user->getUserId();
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
-        $user->setFirstName($row["firstName"]);
-        $user->setLastName($row["lastName"]);
-        $user->setUsername($row["userName"]);
+        $user->setFirstName($row["first_name"]);
+        $user->setLastName($row["last_name"]);
+        $user->setUsername($row["username"]);
     }
     } else {
         echo "0 results";
@@ -19,95 +19,50 @@ class UserDAO {
     $conn->close();
   }
 
-  // for username
-  function getUserN($user){
+  function checkLogin($passedinusername, $passedinpassword){
     require_once('./utilities/connection.php');
-    
-    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE userName ="."'". $user->getUsername() ."'";
+    $user_id = 0;
+    $sql = "SELECT user_id FROM user WHERE username = '" . $passedinusername . "' AND password = '" . hash("sha256", trim($passedinpassword)) . "'";
+
     $result = $conn->query($sql);
 
     if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $user->setFirstName($row["firstName"]);
-        $user->setLastName($row["lastName"]);
-        $user->setUsername($row["userName"]);
+      while($row = $result->fetch_assoc()) {
+        $user_id = $row["user_id"];
+      }
     }
-    } else {
+    else {
         echo "0 results";
     }
     $conn->close();
-  }
-
-  // for firstname
-  function getUserF($user){
-    require_once('./utilities/connection.php');
-    
-    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE firstName ="."'". $user->getFirstName() ."'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $user->setFirstName($row["firstName"]);
-        $user->setLastName($row["lastName"]);
-        $user->setUsername($row["userName"]);
-    }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
-  }
-
-  // for lastname
-  function getUserL($user){
-    require_once('./utilities/connection.php');
-    
-    $sql = "SELECT firstName, lastName, userName FROM cs3620_proj.user WHERE lastName ="."'". $user->getLastName() ."'";
-    $result = $conn->query($sql);
-
-    if ($result->num_rows > 0) {
-    // output data of each row
-    while($row = $result->fetch_assoc()) {
-        $user->setFirstName($row["firstName"]);
-        $user->setLastName($row["lastName"]);
-        $user->setUsername($row["userName"]);
-    }
-    } else {
-        echo "0 results";
-    }
-    $conn->close();
+    return $user_id;
   }
 
   function createUser($user){
     require_once('./utilities/connection.php');
-    
-    $sql = "INSERT INTO cs3620_proj.user
-    (
-    `userName`,
+
+    // prepare and bind
+    $stmt = $conn->prepare("INSERT INTO cs3620_proj.user (`username`,
     `password`,
-    `firstName`,
-    `lastName`)
-    VALUES
-    ('" . $user->getUsername() . "',
-    '" . $user->getPassword() . "',
-    '" . $user->getFirstName() . "',
-    '" . $user->getLastName() . "'
-    );";
+    `first_name`,
+    `last_name`) VALUES (?, ?, ?, ?)");
 
-    if ($conn->query($sql) === TRUE) {
-      echo "user created";
-    } else {
-      echo "Error: " . $sql . "<br>" . $conn->error;
-    }
+    $un = $user->getUsername();
+    $pw = $user->getPassword();
+    $fn = $user->getFirstName();
+    $ln = $user->getLastName();
 
+    $stmt->bind_param("ssss", $un, $pw, $fn, $ln);
+    $stmt->execute();
+
+    $stmt->close();
     $conn->close();
   }
 
   function deleteUser($un){
     require_once('./utilities/connection.php');
     
-    $sql = "DELETE FROM cs3620_proj.user WHERE userName = '" . $un . "';";
+    $sql = "DELETE FROM cs3620_proj.user WHERE username = '" . $un . "';";
 
     if ($conn->query($sql) === TRUE) {
       echo "user deleted";
