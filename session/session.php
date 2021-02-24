@@ -17,5 +17,11 @@ class session {
       return false;
     }
   }
+
+  function logout(){
+    unset($_SESSION["loggedIn"]);
+    unset($_SESSION["user_id"]);
+    header("Location: login.html");
+  }
 }
 ?>

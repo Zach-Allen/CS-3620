@@ -19,10 +19,10 @@ class UserDAO {
     $conn->close();
   }
 
-  function checkLogin($passedinusername, $passedinpassword){
+  function checkLogin($username, $password){
     require_once('./utilities/connection.php');
     $user_id = 0;
-    $sql = "SELECT user_id FROM user WHERE username = '" . $passedinusername . "' AND password = '" . hash("sha256", trim($passedinpassword)) . "'";
+    $sql = "SELECT user_id FROM users WHERE username = '" . $username . "' AND password = '" . hash("sha256", trim($password)) . "'";
 
     $result = $conn->query($sql);
 
@@ -42,7 +42,7 @@ class UserDAO {
     require_once('./utilities/connection.php');
 
     // prepare and bind
-    $stmt = $conn->prepare("INSERT INTO cs3620_proj.user (`username`,
+    $stmt = $conn->prepare("INSERT INTO cs3620_proj.users (`username`,
     `password`,
     `first_name`,
     `last_name`) VALUES (?, ?, ?, ?)");
