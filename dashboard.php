@@ -33,11 +33,14 @@
   }
 
   .cards {
-    color: white;
     width: 90%;
     margin: 0.5em auto;
     flex: 1 0 24%;
     margin: 1%;
+  }
+
+  .card {
+    color: white;
   }
 </style>
 
@@ -59,7 +62,7 @@
 
         for($i = 0; $i < $listLength; $i++) {
             echo '<div class="cards w3-card-4 w3-grey">
-                    <div>
+                    <div class="card">
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
                         <h4 >Rating: ' . $shows[$i]->getShowrating() . '</h4>
                         <h5 >Description: ' . $shows[$i]->getShowDescription() . '</h5>
