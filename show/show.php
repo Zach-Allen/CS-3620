@@ -31,7 +31,7 @@ class Show implements \JsonSerializable {
   }
 
   // hero_description getter and setter
-  
+
   function getShowDescription() {
     return $this->show_description;
   }
@@ -51,7 +51,7 @@ class Show implements \JsonSerializable {
   function setUserId($user_id){
     $this->user_id = $user_id;
   }
- 
+
   // get hero list function
   function getAllShows(){
     $showDAO = new showDAO();
