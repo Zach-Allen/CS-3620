@@ -28,24 +28,14 @@
 
 
 <form method="POST" action="insert_show.php">
-    <center>
-        <table class="w3-table" style="width:40%">
-            <tr>
-                <th>Show name:<input class="w3-input" type="text" name="show_name" onfocus="this.value=''" /></th>
-            </tr>
-            <tr>
-                <th>Show Rating:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></th>
-            </tr>
-            <tr>
-                <th>Show description:<input class="w3-input" type="text" name="show_description" onfocus="this.value=''" /></th>
-            </tr>
-            <tr>
-                <th>
-                    <center><input class="btn btn-primary w3-button w3-round w3-blue" type="submit"
-                            value="Create Show" /></center>
-            </tr>
-        </table>
-    </center>
+            <div>Show name:<input class="w3-input" type="text" name="show_name" onfocus="this.value=''" /></div>
+            <div>Show Rating:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></div>
+            <div>Show description:<input class="w3-input" type="text" name="show_description" onfocus="this.value=''" /></div>
+            <input 
+                class="btn btn-primary w3-button w3-round w3-blue" 
+                type="submit"
+                value="Create Show" 
+            />
 </form>
 
 
