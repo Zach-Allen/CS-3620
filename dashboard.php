@@ -38,11 +38,6 @@
     flex: 1 0 24%;
     margin: 1%;
   }
-
-  .card {
-    /*flex: 0 1 24%;*/
-
-  }
 </style>
 
 <main role="main" class="container">
@@ -62,8 +57,8 @@
         $listLength = count($shows);
 
         for($i = 0; $i < $listLength; $i++) {
-            echo '<div class="cards w3-card-4 w3-light-grey">
-                    <div class="card">
+            echo '<div class="cards w3-card-4 w3-grey">
+                    <div>
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
                         <h4 >Rating: ' . $shows[$i]->getShowrating() . '</h4>
                         <h5 >Description: ' . $shows[$i]->getShowDescription() . '</h5>
