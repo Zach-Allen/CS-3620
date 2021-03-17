@@ -1,5 +1,5 @@
 <?php 
-    require_once('sessioncheck.php'); 
+    require_once('sessioncheck.php');
     require_once('header.php');
 ?>
 
@@ -41,7 +41,7 @@
 
   .card {
     /*flex: 0 1 24%;*/
-    
+
   }
 </style>
 
@@ -57,11 +57,11 @@
         require_once('./show/show.php');
 
         $show = new show();
-        $shows = $show->getMyShows();  
+        $shows = $show->getMyShows();
 
         $listLength = count($shows);
 
-        for($i = 0; $i < $listLength; $i++) {            
+        for($i = 0; $i < $listLength; $i++) {
             echo '<div class="cards w3-card-4 w3-light-grey">
                     <div class="card">
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
