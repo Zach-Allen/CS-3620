@@ -34,7 +34,7 @@
                 <th>Show name:<input class="w3-input" type="text" name="show_name" onfocus="this.value=''" /></th>
             </tr>
             <tr>
-                <th>Show ability:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></th>
+                <th>Show Rating:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></th>
             </tr>
             <tr>
                 <th>Show description:<input class="w3-input" type="text" name="show_description" onfocus="this.value=''" /></th>
