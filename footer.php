@@ -1,5 +1,20 @@
-<h1>
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<style>
 
-This is a footer!
+  .footer {
+    display: flex;
+    width: 100%;
+    padding: 6px;
+    color: white;
+    background-color: gray;
+    margin-top: -10px;
+    font-size: 20px;
+    height: 75px;
+  }
+</style>
 
-</h1>
+<main>
+  <div class="footer">
+    
+  </div>
+</main>
