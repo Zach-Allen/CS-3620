@@ -26,7 +26,7 @@ class Show implements \JsonSerializable {
   function setShowName($show_name){
     $this->show_name = $show_name;
   }
-  
+
   function getShowDescription() {
     return $this->show_description;
   }
@@ -45,7 +45,7 @@ class Show implements \JsonSerializable {
   function setUserId($user_id){
     $this->user_id = $user_id;
   }
- 
+
   function getMyShows(){
     $showDAO = new showDAO();
     return $showDAO->getAllShows();
