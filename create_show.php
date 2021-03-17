@@ -22,9 +22,10 @@
         color: blue;
         font-size: 20px;
     }
-
-    .textBox {
-        width: 50%;
+    
+    .buttonStyle {
+        width: 75px;
+        margin: auto;
     }
 </style>
 
@@ -32,11 +33,11 @@
 
 
 <form method="POST" action="insert_show.php">
-            <div class="">Show name:<input class="w3-input" type="text" name="show_name" onfocus="this.value=''" /></div>
-            <div class="">Show Rating:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></div>
-            <div class="">Show description:<input class="w3-input" type="text" name="show_description" onfocus="this.value=''" /></div>
+            <div>Show name:<input class="w3-input" type="text" name="show_name" onfocus="this.value=''" /></div>
+            <div>Show Rating:<input class="w3-input" type="text" name="show_rating" onfocus="this.value=''" /></div>
+            <div>Show description:<input class="w3-input" type="text" name="show_description" onfocus="this.value=''" /></div>
             <input 
-                class="btn btn-primary w3-button w3-round w3-blue" 
+                class="btn btn-primary w3-button w3-round w3-blue buttonStyle" 
                 type="submit"
                 value="Create Show" 
             />
