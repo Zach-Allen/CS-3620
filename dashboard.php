@@ -40,7 +40,7 @@
   }
 
   .card {
-    color: white;
+    color: #FFF5EE;
   }
 </style>
 
