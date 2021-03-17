@@ -33,6 +33,7 @@
   }
 
   .cards {
+    color: white;
     width: 90%;
     margin: 0.5em auto;
     flex: 1 0 24%;

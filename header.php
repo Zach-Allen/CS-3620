@@ -6,7 +6,7 @@
     width: 100%;
     padding: 6px;
     color: white;
-    background-color: gray;
+    background-color: #4682B4;
     margin-top: -10px;
     font-size: 20px;
     height: 75px;
