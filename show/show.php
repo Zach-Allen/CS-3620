@@ -26,7 +26,7 @@ class Show implements \JsonSerializable {
   function setShowName($show_title){
     $this->show_title = $show_title;
   }
-  
+
   function getShowDescription() {
     return $this->show_description;
   }
