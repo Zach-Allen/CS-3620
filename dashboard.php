@@ -18,11 +18,6 @@
     text-align: left;
   }
 
-  a {
-    color: blue;
-    font-size: 20px;
-  }
-
   .cardContainer {
     width: 90%;
     margin: 0 auto;

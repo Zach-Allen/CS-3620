@@ -84,7 +84,7 @@ class showDAO {
   function deleteShow($uid, $sid){
     require_once('./utilities/connection.php');
     
-    $sql = "DELETE FROM cs3620_proj.show WHERE user_id =" . $uid . "AND show_id=" . $sid . ";";
+    $sql = "DELETE FROM cs3620_proj.shows WHERE user_id = " . $uid . " AND show_id = " . $sid . ";";
 
     if ($conn->query($sql) === TRUE) {
       echo "show deleted";
