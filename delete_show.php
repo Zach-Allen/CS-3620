@@ -1,0 +1,11 @@
+<?php
+  ini_set('display_errors', 1);
+  ini_set('display_startup_errors', 1);
+  error_reporting(E_ALL);
+
+  require_once('./sessioncheck.php');
+  require_once('./show/show.php');
+
+  $show = new show();
+  $shows = $show->deleteShow($_SESSION["user_id"], $_GET["show_id"]);
+?>

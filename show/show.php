@@ -48,7 +48,12 @@ class Show implements \JsonSerializable {
 
   function getMyShows($user_id){
     $showDAO = new showDAO();
-    return $showDAO->getShowByUserId($user_id);
+    return $showDAO->getShowsByUserId($user_id);
+  }
+
+  function deleteShow($user_id, $show_id){
+    $showDAO = new showDAO();
+    return $showDAO->deleteShow($user_id, $show_id);
   }
 
   function getAllShows() {

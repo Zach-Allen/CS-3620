@@ -66,7 +66,7 @@
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
                         <h4 >Rating: ' . $shows[$i]->getShowrating() . '</h4>
                         <h5 >Description: ' . $shows[$i]->getShowDescription() . '</h5>
-                        <a>Delete Show</a>
+                        <a href="delete_show.php?show_id=' . $shows[$i]->getShowId() . '" >Delete Show</a>
                     </div>
                   </div>
                   <br />';
