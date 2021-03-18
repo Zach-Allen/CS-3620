@@ -8,4 +8,7 @@
 
   $show = new show();
   $shows = $show->deleteShow($_SESSION["user_id"], $_GET["show_id"]);
+
+  header("Location: dashboard.php?del=true");
+
 ?>

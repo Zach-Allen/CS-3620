@@ -65,8 +65,8 @@
                     <div class="card">
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
                         <h4 >Rating: ' . $shows[$i]->getShowrating() . '</h4>
-                        <h5 >Description: ' . $shows[$i]->getShowDescription() . '</h5>
-                        <a href="delete_show.php?show_id=' . $shows[$i]->getShowId() . '" >Delete Show</a>
+                        <p >Description: ' . $shows[$i]->getShowDescription() . '</p>
+                        <a href="delete_show.php?show_id=' . $shows[$i]->getShowId() . '">Delete Show</a>
                     </div>
                   </div>
                   <br />';
