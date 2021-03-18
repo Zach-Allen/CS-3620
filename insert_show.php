@@ -12,6 +12,7 @@ $show = new show();
 $show->setShowName($_POST["show_name"]);
 $show->setShowRating($_POST["show_rating"]);
 $show->setShowDescription($_POST["show_description"]);
+$show->setUserId($_SESSION["user_id"]);
 $show->createShow();
 
 header("Location: dashboard.php");
