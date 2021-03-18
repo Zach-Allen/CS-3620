@@ -68,7 +68,7 @@ class showDAO {
     require_once('./utilities/connection.php');
 
     $insertShow = $conn->prepare("INSERT INTO cs3620_proj.shows (`show_name`,
-    `show_rating`, `show_description`) VALUES (?, ?, ?)");
+    `show_rating`, `show_description`, `user_id`) VALUES (?, ?, ?, ?)");
 
     $sn = $show->getShowName();
     $sr = $show->getShowRating();
