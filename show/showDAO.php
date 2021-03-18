@@ -31,6 +31,38 @@ class showDAO {
 
     return $shows;
   }
+  
+  function getShowsByUserId($user_id){
+    require_once('./utilities/connection.php');
+    require_once('./show/show.php');
+
+    $sql = "SELECT show_id, show_name, show_rating, show_description, user_id FROM cs3620_proj.shows WHERE user_id =" . $user_id;
+    $result = $conn->query($sql);
+
+    $shows;
+    $index = 0;
+
+    if ($result->num_rows > 0) {
+        // output data of each row
+        while($row = $result->fetch_assoc()) {
+            $show = new show();
+
+            $show->setShowId($row["show_id"]);
+            $show->setShowName($row["show_name"]);
+            $show->setShowRating($row["show_rating"]);
+            $show->setShowDescription($row["show_description"]);
+            $show->setUserId($row["user_id"]);
+            $shows[$index] = $show;
+            $index = $index + 1;
+        }
+    }
+    else {
+        echo "0 results";
+    }
+    $conn->close();
+
+    return $shows;
+  }
 
   function createShow($show){
     require_once('./utilities/connection.php');
@@ -48,5 +80,6 @@ class showDAO {
     $insertShow->close();
     $conn->close();
   }
+
 }
 ?>
