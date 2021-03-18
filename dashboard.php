@@ -56,7 +56,7 @@
         require_once('./show/show.php');
 
         $show = new show();
-        $shows = $show->getMyShows();
+        $shows = $show->getMyShows($_SESSION["user_id"]);
 
         $listLength = count($shows);
 
@@ -66,6 +66,7 @@
                         <h1 >' . $shows[$i]->getShowName() . '</h1>
                         <h4 >Rating: ' . $shows[$i]->getShowrating() . '</h4>
                         <h5 >Description: ' . $shows[$i]->getShowDescription() . '</h5>
+                        <a>Delete Show</a>
                     </div>
                   </div>
                   <br />';
