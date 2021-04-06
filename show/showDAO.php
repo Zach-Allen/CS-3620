@@ -75,7 +75,7 @@ class showDAO {
     $sd = $show->getShowDescription();
     $uid = $show->getUserId();
 
-    $insertShow->bind_param("sss", $sn, $sr, $sd, $uid);
+    $insertShow->bind_param("sssi", $sn, $sr, $sd, $uid);
     $insertShow->execute();
 
     $insertShow->close();
